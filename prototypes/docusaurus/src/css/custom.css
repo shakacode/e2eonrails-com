@@ -1,0 +1,153 @@
+:root {
+  --ifm-color-primary: #1265d8;
+  --ifm-color-primary-dark: #0f58bf;
+  --ifm-color-primary-darker: #0d4da8;
+  --ifm-color-primary-darkest: #0b3f88;
+  --ifm-color-primary-light: #2678e8;
+  --ifm-color-primary-lighter: #3d8bf0;
+  --ifm-color-primary-lightest: #64a5f6;
+  --ifm-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ifm-heading-font-weight: 800;
+  --ifm-navbar-shadow: none;
+}
+
+.navbar {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.home {
+  background: #f8fafc;
+}
+
+.hero {
+  background:
+    linear-gradient(135deg, #07111d 0%, #0b1828 52%, #123d48 82%, #1265d8 126%);
+  color: #fff;
+  padding: 6rem 1.5rem;
+}
+
+.hero__inner {
+  margin: 0 auto;
+  max-width: 1040px;
+}
+
+.hero__brand {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero__mark {
+  background: #07111d;
+  border-radius: 1.35rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.32);
+  flex: 0 0 auto;
+  height: 6rem;
+  width: 6rem;
+}
+
+.hero__eyebrow {
+  color: #61e294;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 5.5rem;
+  letter-spacing: 0;
+  line-height: 0.95;
+  margin-bottom: 0;
+  max-width: 760px;
+}
+
+.hero__copy {
+  color: #d8e2ef;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  margin: 1.5rem 0 0;
+  max-width: 680px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+.hero__actions .button--primary {
+  color: #fff;
+}
+
+.hero__actions .button--secondary {
+  color: #111827;
+}
+
+.features {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 4rem 1.5rem;
+}
+
+.features article {
+  background: #fff;
+  border: 1px solid #dfe7f1;
+  padding: 2rem;
+}
+
+.features h2 {
+  color: #111827;
+  font-size: 1.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.features p {
+  color: #5e6d82;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 4rem 1.25rem;
+  }
+
+  .hero__brand {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .hero__mark {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .hero h1 {
+    font-size: 3.4rem;
+    line-height: 1;
+  }
+
+  .hero__copy {
+    font-size: 1.1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+}

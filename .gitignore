@@ -1,0 +1,7 @@
+node_modules/
+content/upstream/
+prototypes/docusaurus/docs/
+prototypes/docusaurus/.docusaurus/
+prototypes/docusaurus/build/
+VALIDATION_REPORT_CI.md
+.wrangler/
