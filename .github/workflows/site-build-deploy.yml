@@ -96,9 +96,27 @@ jobs:
         id: deploy
         run: |
           set -euo pipefail
-          npx wrangler pages deploy prototypes/docusaurus/build \
-            --project-name "${CLOUDFLARE_PAGES_PROJECT:-e2eonrails-com}" \
-            --branch "${{ steps.deploy_branch.outputs.branch }}" | tee /tmp/wrangler-pages-deploy.log
+          PROJECT_NAME="${CLOUDFLARE_PAGES_PROJECT:-e2eonrails-com}"
+
+          deploy_pages() {
+            npx wrangler pages deploy prototypes/docusaurus/build \
+              --project-name "$PROJECT_NAME" \
+              --branch "${{ steps.deploy_branch.outputs.branch }}"
+          }
+
+          set +e
+          deploy_pages 2>&1 | tee /tmp/wrangler-pages-deploy.log
+          deploy_status="${PIPESTATUS[0]}"
+          set -e
+
+          if [ "$deploy_status" -ne 0 ]; then
+            if grep -q "Pages project .* does not exist" /tmp/wrangler-pages-deploy.log; then
+              npx wrangler pages project create "$PROJECT_NAME" --production-branch main
+              deploy_pages 2>&1 | tee /tmp/wrangler-pages-deploy.log
+            else
+              exit "$deploy_status"
+            fi
+          fi
 
           DEPLOYMENT_URL="$(grep -Eo 'https://[^ ]+\.pages\.dev' /tmp/wrangler-pages-deploy.log | head -n 1 || true)"
           if [ -z "$DEPLOYMENT_URL" ]; then
