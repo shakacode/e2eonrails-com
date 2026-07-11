@@ -33,6 +33,14 @@ const config: Config = {
     ],
     '@docusaurus/theme-mermaid',
   ],
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [{from: '/docs', to: '/docs/getting-started'}],
+      },
+    ],
+  ],
   presets: [
     [
       'classic',
