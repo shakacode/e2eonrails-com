@@ -18,4 +18,4 @@ means that capability is n/a here.
 `test` and `docs` validate prepared documentation; run `build` or `validate`
 first when starting from a clean checkout.
 
-Non-command policy lives in [`../agent-workflow.yml`](../agent-workflow.yml).
+Non-command policy lives in [`../shaka/config.yml`](../shaka/config.yml).
